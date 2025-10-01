@@ -1,11 +1,11 @@
 using Virtual;
 namespace Keyboard
 {
-    enum Key
+    public enum Key
     {
         None, Membrane, Mechanical, Optical
     }
-    enum Connection
+    public enum Connection
     {
         None, Wired, Wireless
     }
@@ -19,14 +19,16 @@ namespace Keyboard
             string color = "null",
             Key? keys_type = null,
             Connection? connection_type = null,
-            bool? has_black_light = null,
+            bool? has_backlight = null,
             string manufacturer = "null")
+            : base(manufacturer)
         {
-            Color = color;
-            if (keys_type.HasValue) KeysType = keys_type.Value;
-            if (connection_type.HasValue) ConnectionType = connection_type.Value;
-            if (has_black_light.HasValue) HasBacklight = has_black_light.Value;
-            Manufacturer = manufacturer;
+            if (string.IsNullOrWhiteSpace(color) || color.Trim().Length < 3)
+                throw new ArgumentException("The color must contain at least 3 characters.");
+            Color = color.Trim();         
+            KeysType = keys_type ?? Key.None;
+            ConnectionType = connection_type ?? Connection.None;
+            HasBacklight = has_backlight ?? false;
         }
         public override void Print()
         {

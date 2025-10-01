@@ -48,11 +48,12 @@ namespace Lab1
                         case 1:
                             {
                                 string manufacturer;
-                                Periphery new_base = new Periphery();
-                                Console.Write("Enter manufacturer:");
-
-                                manufacturer = Console.ReadLine() ?? "";
-                                new_base.Manufacturer = manufacturer;
+                                Periphery new_base;
+                                manufacturer = CorrectWrite(
+                                "Enter manufacturer: ",
+                                "Incorrect input. Manufacturer must be more than 2",
+                                inputstr => !string.IsNullOrWhiteSpace(inputstr) && inputstr.Length >= 2);
+                                new_base = new Periphery(manufacturer);
                                 peripheries.Add(new_base);
                                 Console.Clear();
                                 break;
@@ -67,31 +68,31 @@ namespace Lab1
                                 Size res;
                                 manufacturer = CorrectWrite(
                                 "Enter manufacturer: ",
-                                "Incorrect input. Please, write something.",
-                                inputstr => !string.IsNullOrWhiteSpace(inputstr));
+                                "Incorrect input. Manufacturer must be more than 2.",
+                                inputstr => !string.IsNullOrWhiteSpace(inputstr) && inputstr.Length >= 2);
 
                                 widthInput = CorrectWrite(
                                         "Enter screen width: ",
-                                        "Incorrect input. Please, enter a positive integer.",
-                                        inputstr => int.TryParse(inputstr, out width) && width > 0);
+                                        "Incorrect input. Resolution width must be between 800 and 7680.",
+                                        inputstr => int.TryParse(inputstr, out width) && width >= 800 && width <= 7680);
 
                                 heightInput = CorrectWrite(
                                     "Enter screen height: ",
-                                    "Incorrect input. Please, enter a positive integer.",
-                                    inputstr => int.TryParse(inputstr, out height) && height > 0);
+                                    "Incorrect input. Resolution height must be between 600 and 4320.",
+                                    inputstr => int.TryParse(inputstr, out height) && height >= 600 && height <= 4320);
 
                                 res = new Size(width, height);
 
                                 sizeInput = CorrectWrite(
                                     "Enter screen size (inches): ",
-                                    "Incorrect input. Please, enter a positive number.",
-                                    inputstr => double.TryParse(inputstr, out screenSize) && screenSize > 0);
-
+                                    "Incorrect input. The screen diagonal must be between 10 and 150 inches.",
+                                    inputstr => double.TryParse(inputstr, out screenSize) &&
+                                                        screenSize <= 150 && screenSize >= 10);
                                 refreshinput = CorrectWrite(
                                     "Enter refresh rate (Hz):",
-                                    "Incorrect input. Please, enter a positive integer.",
-                                    inputstr => int.TryParse(inputstr, out refreshRate) && refreshRate > 0);
-
+                                    "Incorrect input. Refresh rate must be between 55 and 500 Hz.",
+                                    inputstr => int.TryParse(inputstr, out refreshRate) &&
+                                                    refreshRate >= 55 && refreshRate <= 500);
                                 Monitor.Monitor el_monitor = new Monitor.Monitor(res, refreshRate, screenSize, manufacturer);
                                 peripheries.Add(el_monitor);
                                 Console.Clear();
@@ -107,13 +108,13 @@ namespace Lab1
                                 bool hasBacklight = false;
                                 manufacturer = CorrectWrite(
                                 "Enter manufacturer: ",
-                                "Incorrect input. Please, write something.",
-                                input => !string.IsNullOrWhiteSpace(input));
+                                "Incorrect input. Manufacturer must be more than 2.",
+                                inputstr => !string.IsNullOrWhiteSpace(inputstr) && inputstr.Length >= 2);
 
                                 color = CorrectWrite(
                                         "Enter color: ",
-                                        "Incorrect input. Please, write something.",
-                                        inputstr => !string.IsNullOrWhiteSpace(inputstr));
+                                        "Incorrect input. Color must be more than 3.",
+                                        inputstr => !string.IsNullOrWhiteSpace(inputstr) && inputstr.Length >= 3);
 
 
                                 connectionInput = CorrectWrite(
