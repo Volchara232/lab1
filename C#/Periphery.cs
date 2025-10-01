@@ -5,7 +5,7 @@ namespace Virtual
         public string Manufacturer { get; set; }  = "Undefined";
         public virtual void Print()
         {
-            Console.WriteLine("Manufacturer:", Manufacturer);
+            Console.WriteLine($"Manufacturer: {Manufacturer}");
         }
     }
 }
