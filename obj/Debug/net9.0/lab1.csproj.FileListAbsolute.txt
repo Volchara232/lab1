@@ -1,0 +1,15 @@
+/home/user/code/proga3/lab1/bin/Debug/net9.0/lab1
+/home/user/code/proga3/lab1/bin/Debug/net9.0/lab1.deps.json
+/home/user/code/proga3/lab1/bin/Debug/net9.0/lab1.runtimeconfig.json
+/home/user/code/proga3/lab1/bin/Debug/net9.0/lab1.dll
+/home/user/code/proga3/lab1/bin/Debug/net9.0/lab1.pdb
+/home/user/code/proga3/lab1/obj/Debug/net9.0/lab1.GeneratedMSBuildEditorConfig.editorconfig
+/home/user/code/proga3/lab1/obj/Debug/net9.0/lab1.AssemblyInfoInputs.cache
+/home/user/code/proga3/lab1/obj/Debug/net9.0/lab1.AssemblyInfo.cs
+/home/user/code/proga3/lab1/obj/Debug/net9.0/lab1.csproj.CoreCompileInputs.cache
+/home/user/code/proga3/lab1/obj/Debug/net9.0/lab1.sourcelink.json
+/home/user/code/proga3/lab1/obj/Debug/net9.0/lab1.dll
+/home/user/code/proga3/lab1/obj/Debug/net9.0/refint/lab1.dll
+/home/user/code/proga3/lab1/obj/Debug/net9.0/lab1.pdb
+/home/user/code/proga3/lab1/obj/Debug/net9.0/lab1.genruntimeconfig.cache
+/home/user/code/proga3/lab1/obj/Debug/net9.0/ref/lab1.dll
