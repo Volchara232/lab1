@@ -1,16 +1,11 @@
-namespace Virual
+namespace Virtual
 {
     class Periphery
     {
-        protected string manufacturer = "Undefined";
-        public string Manufacturer
-        {
-            get { return manufacturer; }
-            set { manufacturer = value; }
-        }
+        private protected string Manufacturer { get; set; }  = "Undefined";
         public virtual void Print()
         {
-            Console.WriteLine("Manufacturer:", manufacturer);
+            Console.WriteLine("Manufacturer:", Manufacturer);
         }
     }
 }

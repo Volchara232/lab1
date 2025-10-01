@@ -1,30 +1,40 @@
-using Virual;
+using Virtual;
 using System.Drawing;
 using System.Reflection.Metadata;
 namespace Monitor
 {
     class Monitor : Periphery
     {
-        private Size resolution = new Size(1920, 1080);
-        private int refresh_rate = 60;
-        public Size Resolution
+        private Size Resolution
+        { get; set; } = new Size(1920, 1080);
+        private int RefreshRate
+        { get; set; } = 60;
+        private double ScreenSize
+        { get; set; } = 23.8;
+        public Monitor(
+            Size? resolution = null,
+            int? refreshRate = null,
+            double? screenSize = null,
+            string manufacturer = "null")
         {
-            get { return resolution; }
-            set { Resolution = value; }
+            if (resolution.HasValue)
+                Resolution = resolution.Value;
+
+            if (refreshRate.HasValue)
+                RefreshRate = refreshRate.Value;
+
+            if (screenSize.HasValue)
+                ScreenSize = screenSize.Value;
+
+            Manufacturer = manufacturer;
         }
-        public int RefreshRate
+        public override void Print()
         {
-            get { return refresh_rate; }
-            set { refresh_rate = value; }
+            base.Print();
+            Console.WriteLine($"Resolution: {Resolution.Width}x{Resolution.Height}");
+            Console.WriteLine($"Refresh Rate: {RefreshRate} Hz");
+            Console.WriteLine($"Screen Size: {ScreenSize} inches");
         }
-        private double screen_size = 23.8;
-        public double ScreenSize
-        {
-            get { return screen_size; }
-            set { ScreenSize = value; }
-        }
-        public Monitor()
-        {}
 
     }
 }
